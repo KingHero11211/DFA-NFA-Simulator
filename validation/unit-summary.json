@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-25",
+  "node": "v22.22.2",
+  "total": 48317,
+  "failed": 0,
+  "suites": [
+    {
+      "suite": "engine.test.js",
+      "passed": 3042,
+      "failed": 0
+    },
+    {
+      "suite": "construction.test.js",
+      "passed": 45247,
+      "failed": 0
+    },
+    {
+      "suite": "ui.test.js",
+      "passed": 28,
+      "failed": 0
+    }
+  ]
+}

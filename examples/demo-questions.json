@@ -1,0 +1,179 @@
+[
+  {
+    "question": "Design a DFA for binary strings ending in 01",
+    "type": "DFA",
+    "cases": [
+      [
+        "0101",
+        true
+      ],
+      [
+        "010",
+        false
+      ],
+      [
+        "",
+        false
+      ]
+    ]
+  },
+  {
+    "question": "Binary strings with even number of 1s and odd number of 0s",
+    "type": "DFA",
+    "cases": [
+      [
+        "101",
+        true
+      ],
+      [
+        "11",
+        false
+      ],
+      [
+        "0",
+        true
+      ],
+      [
+        "",
+        false
+      ]
+    ]
+  },
+  {
+    "question": "Binary strings starting with 1 and ending in 00",
+    "type": "DFA",
+    "cases": [
+      [
+        "100",
+        true
+      ],
+      [
+        "001",
+        false
+      ]
+    ]
+  },
+  {
+    "question": "Binary strings with exactly two 1s",
+    "type": "DFA",
+    "cases": [
+      [
+        "101",
+        true
+      ],
+      [
+        "111",
+        false
+      ]
+    ]
+  },
+  {
+    "question": "Binary strings with length at most 4",
+    "type": "DFA",
+    "cases": [
+      [
+        "0101",
+        true
+      ],
+      [
+        "01010",
+        false
+      ],
+      [
+        "",
+        true
+      ]
+    ]
+  },
+  {
+    "question": "Binary numbers divisible by 3",
+    "type": "DFA",
+    "cases": [
+      [
+        "110",
+        true
+      ],
+      [
+        "101",
+        false
+      ],
+      [
+        "0",
+        true
+      ],
+      [
+        "",
+        false
+      ]
+    ]
+  },
+  {
+    "question": "Strings over {a,b} starting with ab and ending in ba",
+    "type": "DFA",
+    "cases": [
+      [
+        "abba",
+        true
+      ],
+      [
+        "abab",
+        false
+      ]
+    ]
+  },
+  {
+    "question": "Binary strings with no consecutive 1s",
+    "type": "DFA",
+    "cases": [
+      [
+        "1010",
+        true
+      ],
+      [
+        "110",
+        false
+      ]
+    ]
+  },
+  {
+    "question": "Binary strings ending in 01",
+    "type": "NFA",
+    "cases": [
+      [
+        "101",
+        true
+      ],
+      [
+        "010",
+        false
+      ]
+    ]
+  },
+  {
+    "question": "a*b",
+    "mode": "regex",
+    "alphabet": [
+      "a",
+      "b"
+    ],
+    "type": "ENFA",
+    "cases": [
+      [
+        "aab",
+        true
+      ],
+      [
+        "aba",
+        false
+      ],
+      [
+        "",
+        false
+      ],
+      [
+        "b",
+        true
+      ]
+    ]
+  }
+]

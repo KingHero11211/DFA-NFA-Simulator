@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>State Studio · DFA/NFA Visualizer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <span class="eyebrow">CSET302 · FINAL PROJECT</span>
+        <h1>State Studio</h1>
+        <p>Ask a language question. Build its automaton. Explain every step.</p>
+      </div>
+      <span class="badge">Aaryan · Prejval Yadav · Sakshi</span>
+    </header>
+    <section class="panel builder" aria-labelledby="builderTitle">
+      <div class="sectionTop">
+        <h2 id="builderTitle">01 <span>Question → automaton</span></h2>
+        <span class="badge">Offline · no API key</span>
+      </div>
+      <p class="builderIntro">
+        Describe a regular language and generate its machine. Then test strings
+        in the simulator below.
+      </p>
+      <div class="builderGrid">
+        <div>
+          <label for="question">Language question or regular expression</label
+          ><textarea id="question" rows="3" spellcheck="false">
+Design a DFA for binary strings ending in 01</textarea
+          >
+          <div class="exampleQuestions">
+            <button
+              type="button"
+              data-question="Design a DFA for binary strings ending in 01"
+            >
+              Ends in 01</button
+            ><button
+              type="button"
+              data-question="Binary strings with even number of 1s and odd number of 0s"
+            >
+              Two count conditions</button
+            ><button
+              type="button"
+              data-question="Strings over {a,b} starting with ab and ending in ba"
+            >
+              Starts AND ends</button
+            ><button
+              type="button"
+              data-question="Binary strings that do not contain 11"
+            >
+              No consecutive 1s</button
+            ><button
+              type="button"
+              data-question="Binary numbers divisible by 3"
+            >
+              Divisible by 3</button
+            ><button
+              type="button"
+              data-question="Binary strings with length at most 4"
+            >
+              Length ≤ 4
+            </button>
+          </div>
+        </div>
+        <div>
+          <div class="row">
+            <div>
+              <label for="questionMode">Input mode</label
+              ><select id="questionMode">
+                <option value="question">Language question</option>
+                <option value="regex">Regular expression</option>
+              </select>
+            </div>
+            <div>
+              <label for="outputType">Generate</label
+              ><select id="outputType">
+                <option value="DFA">DFA (minimized)</option>
+                <option value="NFA">NFA (without ε)</option>
+                <option value="ENFA">ε-NFA</option>
+              </select>
+            </div>
+          </div>
+          <label for="questionAlphabet"
+            >Alphabet (optional, comma separated)</label
+          ><input
+            id="questionAlphabet"
+            placeholder="Auto / e.g. 0,1 or a,b"
+          /><button id="generate" class="primary">Generate automaton</button>
+          <p id="generationStatus" role="status" aria-live="polite">
+            Enter a question, then generate its automaton.
+          </p>
+        </div>
+      </div>
+      <details>
+        <summary>Supported questions and regex syntax</summary>
+        <p class="hint">
+          Starts with / ends in / contains a literal pattern; NOT, AND, OR (AND
+          binds before OR); even/odd, exactly/at least/at most N occurrences of
+          a symbol; count modulo M = R; length constraints; nonempty binary
+          numbers divisible by N. Declare another alphabet with
+          <code>over {a,b}</code>. Counts 0–40; construction limit 128 states.
+          Small Hinglish forms such as
+          <code>binary strings jo 01 se end hoti hain</code> also work.
+        </p>
+        <p class="hint">
+          Regex mode matches the whole string. Use <code>(0|1)*01</code>,
+          <code>a*b</code>, <code>(ab|ba)+</code>, <code>[01]</code>,
+          <code>?</code>, <code>.</code> (any chosen alphabet symbol),
+          <code>ε</code> (empty string), or <code>∅</code> (empty language).
+          Union is <code>|</code>; postfix <code>+</code> means one or more. No
+          lookaround, backreferences, shorthand classes or {N} repetition.
+        </p>
+        <p class="hint">
+          This is a supported-language parser, not unrestricted AI. It refuses
+          unrecognized wording. Check the interpreted language before using the
+          generated machine as your answer.
+        </p>
+      </details>
+      <section
+        id="construction"
+        class="construction"
+        hidden
+        aria-label="Construction explanation"
+      >
+        <h3>Interpreted language</h3>
+        <p id="interpretation"></p>
+        <ol id="constructionSteps"></ol>
+        <p id="machineStats" class="hint"></p>
+        <p id="constructionNotice" class="hint"></p>
+      </section>
+    </section>
+    <main>
+      <aside class="panel">
+        <h2>01 <span>Automaton editor</span></h2>
+        <label for="preset">Example machine</label
+        ><select id="preset">
+          <option value="dfa">DFA · binary ends in 01</option>
+          <option value="even_ones">DFA · even number of 1s</option>
+          <option value="starts_one">DFA · binary starts with 1</option>
+          <option value="contains_00">DFA · binary contains 00</option>
+          <option value="nfa">NFA · binary ends in 01</option>
+          <option value="enfa">ε-NFA · a*b</option>
+        </select>
+        <label for="type">Model</label
+        ><select id="type">
+          <option>DFA</option>
+          <option>NFA</option>
+          <option value="ENFA">ε-NFA</option>
+        </select>
+        <label for="alphabet">Alphabet (comma separated)</label
+        ><input id="alphabet" value="0,1" /><button id="alphabetApply">
+          Apply alphabet
+        </button>
+        <div class="row">
+          <input
+            id="newState"
+            placeholder="New state, e.g. q3"
+            aria-label="New state name"
+          /><button id="addState">Add</button>
+        </div>
+        <p class="hint">
+          Select one start state and any accepting states. Removing a state
+          removes its edges.
+        </p>
+        <div id="states"></div>
+        <h3>Transition table</h3>
+        <p class="hint">
+          Destinations: comma separated. Blank = ∅. ε consumes no symbol.
+        </p>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>From</th>
+                <th>Symbol</th>
+                <th>Destination(s)</th>
+              </tr>
+            </thead>
+            <tbody id="transitions"></tbody>
+          </table>
+        </div>
+        <button id="apply">Apply &amp; validate machine</button>
+        <p id="message" role="status"></p>
+        <details>
+          <summary>JSON import / export</summary>
+          <label for="json">Automaton JSON</label
+          ><textarea id="json" rows="10" spellcheck="false"></textarea>
+          <div class="row">
+            <button id="import">Import JSON</button
+            ><button id="export">Export JSON</button>
+          </div>
+          <p class="hint">
+            Export refreshes this box and downloads a .json file.
+          </p>
+        </details>
+      </aside>
+      <section class="workspace">
+        <section class="panel">
+          <div class="sectionTop">
+            <h2>02 <span>Simulation canvas</span></h2>
+            <span id="stepLabel" class="badge">Step 0</span>
+          </div>
+          <div class="inputbar">
+            <label for="input">Input string <small>(blank = ε)</small></label
+            ><input
+              id="input"
+              value="0101"
+              autocomplete="off"
+              spellcheck="false"
+            /><button id="run" class="primary">▶ Run</button>
+          </div>
+          <div class="graphTools">
+            <span class="hint">Diagram</span
+            ><button id="zoomOut" aria-label="Zoom out diagram">−</button
+            ><button id="zoomIn" aria-label="Zoom in diagram">+</button
+            ><button id="zoomFit">Fit</button
+            ><button id="downloadSvg">Save SVG</button>
+          </div>
+          <div
+            id="graph"
+            class="graph"
+            aria-label="Automaton state diagram"
+          ></div>
+          <p class="legend">
+            ● Blue: current state(s) · Orange: transitions used in this step ·
+            Double circle: accepting
+          </p>
+          <div class="controls">
+            <button id="back">← Back</button><button id="step">Step →</button
+            ><button id="pause">Pause</button><button id="reset">Reset</button
+            ><label for="speed"
+              >Delay <output id="speedValue">700 ms</output></label
+            ><input
+              id="speed"
+              type="range"
+              min="100"
+              max="1800"
+              step="100"
+              value="700"
+            />
+          </div>
+          <div class="tape">
+            <span>Input progress</span
+            ><code
+              ><mark id="consumed"></mark><span id="remaining"></span
+            ></code>
+          </div>
+          <div id="result" class="result" role="status">
+            Ready — choose Run or Step.
+          </div>
+        </section>
+        <section class="panel">
+          <h2>03 <span>Step trace</span></h2>
+          <div class="scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Step</th>
+                  <th>Read</th>
+                  <th>Current state(s)</th>
+                  <th>Transitions used</th>
+                </tr>
+              </thead>
+              <tbody id="trace"></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="panel" id="pathPanel">
+          <h2>04 <span>Computation tree / paths</span></h2>
+          <p class="hint">
+            Each row is a tree node; parent IDs preserve separate branches.
+            Green rows form accepting paths. ε cycles are summarized.
+          </p>
+          <p id="treeWarning"></p>
+          <div class="scroll paths">
+            <table>
+              <thead>
+                <tr>
+                  <th>Node ← parent</th>
+                  <th>Path prefix</th>
+                  <th>Read</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="paths"></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="panel">
+          <div class="sectionTop">
+            <h2>05 <span>Validation lab</span></h2>
+            <div class="row">
+              <button id="runTests">Run all tests</button
+              ><button id="downloadTests" disabled>Save results CSV</button>
+            </div>
+          </div>
+          <label for="testCases"
+            >Cases: one JSON pair per line, e.g. ["01", true]. Use "ERROR" for
+            invalid input.</label
+          ><textarea id="testCases" rows="5" spellcheck="false"></textarea>
+          <p class="hint" id="testOrigin">
+            Expected answers are supplied with the selected preset.
+          </p>
+          <p id="testSummary" role="status"></p>
+          <div class="scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>String</th>
+                  <th>Expected</th>
+                  <th>Generated</th>
+                  <th>Check</th>
+                </tr>
+              </thead>
+              <tbody id="testResults"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer>
+      Final project · Offline construction and simulation · Theory, tests and
+      source code included.
+    </footer>
+    <script src="engine.js"></script>
+    <script src="compiler.js"></script>
+    <script src="questions.js"></script>
+    <script src="presets.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

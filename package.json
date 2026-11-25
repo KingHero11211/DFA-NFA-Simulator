@@ -1,0 +1,17 @@
+{
+  "name": "state-studio-automata-final",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Offline question-to-automaton construction and DFA/NFA/epsilon-NFA string visualizer",
+  "scripts": {
+    "test": "node tests/run-all.js",
+    "test:browser": "node tests/browser.test.js",
+    "evidence": "node tests/create-evidence.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.0"
+  }
+}

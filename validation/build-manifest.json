@@ -1,0 +1,212 @@
+{
+  "date": "2026-11-25",
+  "version": "2.0.0",
+  "checks": {
+    "development": 48317,
+    "browser": 30,
+    "csv_rows": {
+      "preset-results.csv": 78,
+      "manual-and-generated.csv": 28,
+      "construction-results.csv": 38250,
+      "browser-results.csv": 13
+    }
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "963ad11f4478ad203c5ae48925cc891f3b7d74d0162494f51f9a58331fbacdac"
+    },
+    {
+      "path": "docs/01_problem_and_specification.md",
+      "sha256": "8b8da31847c45ab734c4aef279bef9298a18e65e892fce4311c7a37e41a27793"
+    },
+    {
+      "path": "docs/02_existing_tools_and_feasibility.md",
+      "sha256": "d77eeb340595555f55a500071351cff5b7634a4f62d60da1af7b97e42a748243"
+    },
+    {
+      "path": "docs/03_design_and_methodology.md",
+      "sha256": "365bab4442c3601e86c878ffd2e1902ee4898c7feb85dda3a715df5da47e7c3f"
+    },
+    {
+      "path": "docs/04_algorithms_and_validation.md",
+      "sha256": "a46f6be692cf637861ec4a9ecf98e04cd87f2d74be7079e0ef31cac562ea0537"
+    },
+    {
+      "path": "docs/automaton.schema.json",
+      "sha256": "b4aedc21bb954da56cd4db60eacd65984b312fd44fa6005445452a991ca09aa1"
+    },
+    {
+      "path": "docs/CODE_GUIDE.md",
+      "sha256": "155fde59df14d8d563e0698a168dbd63ca86f8fe5088074d61616c82ce62b618"
+    },
+    {
+      "path": "docs/DEMO_AND_VIVA.md",
+      "sha256": "ba735500dc90f3643c1ff785ccf26d2346231c03e79d4cb5fbee5e0152806b29"
+    },
+    {
+      "path": "docs/mockup.html",
+      "sha256": "3f296401e6a29330b7067dcbbb471579ec70c22460c2c0d43bf59c2d97133c1b"
+    },
+    {
+      "path": "docs/screenshots/01-question-construction.png",
+      "sha256": "59f5e6e769ccc9164057b053f198381e6ea6bd33af972313fe77e69bd1c8a3a9"
+    },
+    {
+      "path": "docs/screenshots/02-dfa-accepted.png",
+      "sha256": "85521543a2123050757e35b13813347c59d9601af78bd4987fb0b44ebb6915d8"
+    },
+    {
+      "path": "docs/screenshots/03-nfa-paths.png",
+      "sha256": "d763fbbf22a8a93a6511ac076ba1c3694245ac7a88662686a3c3560afef14a4e"
+    },
+    {
+      "path": "docs/screenshots/04-epsilon-simulation.png",
+      "sha256": "7b73610486dc80be608c8ddf1e6d1f3871954c4a157804fe92255c52802d041c"
+    },
+    {
+      "path": "docs/screenshots/05-validation-panel.png",
+      "sha256": "ac38ef0cfad5c2bd8941f6b21b7ddc79d4a694a17654891dabc8a93b3061505d"
+    },
+    {
+      "path": "docs/screenshots/06-mobile-builder.png",
+      "sha256": "f75ea9d9f194637948422bc06c21f3789ec0c4d61755bb295b047634aceb4e27"
+    },
+    {
+      "path": "docs/screenshots/07-full-app.png",
+      "sha256": "e68caeeff045e77680b51f426e1305b154ce2bf365dfc5b20c20a0d92235f088"
+    },
+    {
+      "path": "docs/TEAM_RESPONSIBILITIES.md",
+      "sha256": "cab5f53c128d74a243fd7260fdcfea1b90574c19f781947cfd1620c709469d8e"
+    },
+    {
+      "path": "examples/demo-questions.json",
+      "sha256": "8c75c0b563690889f13da3176733ce053cb33a382dee162053c0dfe703bdf115"
+    },
+    {
+      "path": "examples/generated-1-dfa.json",
+      "sha256": "72e2ac5e1f5964cf08c4bda966dac91e248925ed87c97475200a7ec69b67ba35"
+    },
+    {
+      "path": "examples/generated-10-enfa.json",
+      "sha256": "8cc886d6528699d5848109d393163039fa9a1824256c5bf2bf9b41168bfb85ac"
+    },
+    {
+      "path": "examples/generated-2-dfa.json",
+      "sha256": "ecccbcd82b013c04dcf080cba9cf603ae7999781b6acf9556a3fcac5bbd01b9d"
+    },
+    {
+      "path": "examples/generated-9-nfa.json",
+      "sha256": "ccae7839f3e3e2d7e979d556bfd1214f2491e6766d7746957635c05440b0ae91"
+    },
+    {
+      "path": "index.html",
+      "sha256": "3e8369cbe1118501381565eab4620250ca99fc22c6b107d44dddf59f493765a6"
+    },
+    {
+      "path": "package.json",
+      "sha256": "3969140d553d7f72dd47799f5de13bcea507fdfd6ee39da7913eebf30e2c592b"
+    },
+    {
+      "path": "prototype/app.js",
+      "sha256": "2457b0b51144db10d7e8f3cf7d7d92a6d2019522c34b837933d9ceb42c2d6bd1"
+    },
+    {
+      "path": "prototype/compiler.js",
+      "sha256": "f161d770e926a9f6f0f9614ef70ebde3631e8bb6f5eae287e0630db520fdf71c"
+    },
+    {
+      "path": "prototype/engine.js",
+      "sha256": "9806a24e47e1b13e50b333ef618910444ed83f2b7facb4ea91b5b00858acfba2"
+    },
+    {
+      "path": "prototype/index.html",
+      "sha256": "3fb4e9ddc647f8e0fbe8280142c2223ccc697ad8a10deea7e44505475a2d3639"
+    },
+    {
+      "path": "prototype/presets.js",
+      "sha256": "80a0351b93938cb9a2e3689760fa04a5937ca926e64ecb43ba361eab51f01ad9"
+    },
+    {
+      "path": "prototype/questions.js",
+      "sha256": "77b221606e96e6f8a3a1b8a4a4398eb04621abc67ab359a8f115954cef90990d"
+    },
+    {
+      "path": "prototype/style.css",
+      "sha256": "86e548cd25bb0aa83b66581e03ea432913e33cc819b6d334cfb8f42635171701"
+    },
+    {
+      "path": "README.md",
+      "sha256": "08313a0148d40d5ddf3d1125d395d5a13e93aa5a3a763ad94a9e16d4ae5c33cd"
+    },
+    {
+      "path": "report/build_report.py",
+      "sha256": "3ee2aa86df14271aa6d73241510d8957c54df8c4362649f2cf5f770362d34d0c"
+    },
+    {
+      "path": "report/requirements.txt",
+      "sha256": "9fde021a0612342922903d0c4d14a14b168bfd4c0e4a4eb8360e555bd6ad9b5d"
+    },
+    {
+      "path": "report/technical-report.pdf",
+      "sha256": "8a7a0116039172e7a45c2a690e006456e2ac95883e0fdd72f146ddaddea4500c"
+    },
+    {
+      "path": "tests/browser.test.js",
+      "sha256": "cfbfd5396971e023ad3995288664c0785d0be4fdf6a6640aa422572e4e0fe3fc"
+    },
+    {
+      "path": "tests/construction.test.js",
+      "sha256": "5881334b60b93c99eba23b40c6348fecad8dd012e7367731c6209818e169eb47"
+    },
+    {
+      "path": "tests/create-evidence.js",
+      "sha256": "2a56f47749052717f3d39ba6ac6dcf0cf26bf7a1c086479784a7039ff24ce841"
+    },
+    {
+      "path": "tests/engine.test.js",
+      "sha256": "51be91d5c9d21bf7843498ef02cc40c79bd192d400f58f57130c9c6b4ce5778c"
+    },
+    {
+      "path": "tests/run-all.js",
+      "sha256": "468e943940e2607d1e929739ac22e873fe62c39b749965660c6cfddc382c3934"
+    },
+    {
+      "path": "tests/ui.test.js",
+      "sha256": "643689d8c43ceb637f6fcb64b7836b7837cd3e94c83ca8b7a1cc697209a084df"
+    },
+    {
+      "path": "validation/browser-results.csv",
+      "sha256": "79f35307ecf7379f1d26fef365c7cd5828950e134666a6f28e8257f449e86a88"
+    },
+    {
+      "path": "validation/browser-summary.json",
+      "sha256": "cbff736c15d510ab4441bb771b4ba4f789715c5734c0b609d2146d13ce65005c"
+    },
+    {
+      "path": "validation/construction-results.csv",
+      "sha256": "6715919e412fef68fbfd8e3b7cdc71e09d838a9514b43d549bebd1c172a6995b"
+    },
+    {
+      "path": "validation/manual-and-generated.csv",
+      "sha256": "9e73de7ae23252333adc0a0f0c15ec1cceb126703c4f517ca25567f5be6eb15d"
+    },
+    {
+      "path": "validation/manual-summary.json",
+      "sha256": "5580a50e37d7693366f03dd7849ad555939f3e838b96ac08d2ede38f374a5854"
+    },
+    {
+      "path": "validation/preset-results.csv",
+      "sha256": "b94f651e110b9fb6ba7ad8c74d2981cd3240df4824ab480476c77902675b515d"
+    },
+    {
+      "path": "validation/unit-summary.json",
+      "sha256": "7c9edacdf46f3bd03699908af66856d9c07e7f5ddb6f96c1c763946746bd363e"
+    },
+    {
+      "path": "VALIDATION_REPORT.md",
+      "sha256": "268dd170de08ccbd8db0328994243869fc84f2d5edc7b2f4546c44a7b8ab7a23"
+    }
+  ]
+}

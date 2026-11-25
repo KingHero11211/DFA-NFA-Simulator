@@ -1,0 +1,130 @@
+{
+  "date": "2026-11-25",
+  "browser": "158.0.4370.33",
+  "checks": 30,
+  "passed": 30,
+  "failed": 0,
+  "pageErrors": [],
+  "evidence": [
+    {
+      "name": "page loads editor and SVG without external assets",
+      "status": "PASS"
+    },
+    {
+      "name": "forward and back select real browser snapshots",
+      "status": "PASS"
+    },
+    {
+      "name": "Run accepts 0101 and rejects 010",
+      "status": "PASS"
+    },
+    {
+      "name": "Pause stops playback and Run resumes",
+      "status": "PASS"
+    },
+    {
+      "name": "preset dfa runs all expected cases",
+      "status": "PASS"
+    },
+    {
+      "name": "preset even_ones runs all expected cases",
+      "status": "PASS"
+    },
+    {
+      "name": "preset starts_one runs all expected cases",
+      "status": "PASS"
+    },
+    {
+      "name": "preset contains_00 runs all expected cases",
+      "status": "PASS"
+    },
+    {
+      "name": "preset nfa runs all expected cases",
+      "status": "PASS"
+    },
+    {
+      "name": "preset enfa runs all expected cases",
+      "status": "PASS"
+    },
+    {
+      "name": "question constructs a new DFA and its expected tests",
+      "status": "PASS"
+    },
+    {
+      "name": "generated language rejects the wrong parity",
+      "status": "PASS"
+    },
+    {
+      "name": "unknown wording preserves existing machine",
+      "status": "PASS"
+    },
+    {
+      "name": "question example button creates a dynamic combined language",
+      "status": "PASS"
+    },
+    {
+      "name": "regex produces NFA with accepting path highlights",
+      "status": "PASS"
+    },
+    {
+      "name": "epsilon-NFA initial closure and accepted string",
+      "status": "PASS"
+    },
+    {
+      "name": "epsilon-only regex accepts blank input at step zero",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid input symbol shows an error rather than rejection",
+      "status": "PASS"
+    },
+    {
+      "name": "JSON export downloads a valid current model",
+      "status": "PASS"
+    },
+    {
+      "name": "custom JSON import changes the actual language",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid JSON import does not replace valid machine",
+      "status": "PASS"
+    },
+    {
+      "name": "adding and removing states updates graph and validation",
+      "status": "PASS"
+    },
+    {
+      "name": "transition table editing invalidates old trace",
+      "status": "PASS"
+    },
+    {
+      "name": "zoom changes diagram scale and resets to fit",
+      "status": "PASS"
+    },
+    {
+      "name": "SVG download contains a standalone graph",
+      "status": "PASS"
+    },
+    {
+      "name": "test-result CSV downloads actual expected/generated rows",
+      "status": "PASS"
+    },
+    {
+      "name": "large generated graph supports scrolling and complete transitions",
+      "status": "PASS"
+    },
+    {
+      "name": "generation failures keep unsupported questions visible",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile layout has no document-wide horizontal overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "no unhandled browser JavaScript errors",
+      "status": "PASS"
+    }
+  ]
+}

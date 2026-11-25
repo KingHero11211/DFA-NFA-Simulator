@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Classroom finite automaton",
+  "type": "object",
+  "required": [
+    "type",
+    "states",
+    "alphabet",
+    "start",
+    "accepting",
+    "transitions"
+  ],
+  "$defs": {
+    "state": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_]{0,15}$"
+    }
+  },
+  "properties": {
+    "type": {
+      "enum": [
+        "DFA",
+        "NFA",
+        "ENFA"
+      ]
+    },
+    "states": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/state"
+      }
+    },
+    "alphabet": {
+      "type": "array",
+      "maxItems": 12,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1
+      }
+    },
+    "start": {
+      "$ref": "#/$defs/state"
+    },
+    "accepting": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/state"
+      }
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "from",
+          "symbol",
+          "to"
+        ],
+        "properties": {
+          "from": {
+            "$ref": "#/$defs/state"
+          },
+          "symbol": {
+            "type": "string",
+            "maxLength": 1
+          },
+          "to": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "$ref": "#/$defs/state"
+            }
+          }
+        }
+      }
+    }
+  }
+}

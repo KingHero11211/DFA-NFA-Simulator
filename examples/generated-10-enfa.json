@@ -1,0 +1,74 @@
+{
+  "type": "ENFA",
+  "states": [
+    "q0",
+    "q1",
+    "q2",
+    "q3",
+    "q4",
+    "q5",
+    "q6",
+    "q7"
+  ],
+  "alphabet": [
+    "a",
+    "b"
+  ],
+  "start": "q0",
+  "accepting": [
+    "q1"
+  ],
+  "transitions": [
+    {
+      "from": "q4",
+      "symbol": "a",
+      "to": [
+        "q5"
+      ]
+    },
+    {
+      "from": "q2",
+      "symbol": "",
+      "to": [
+        "q4",
+        "q3"
+      ]
+    },
+    {
+      "from": "q5",
+      "symbol": "",
+      "to": [
+        "q3",
+        "q4"
+      ]
+    },
+    {
+      "from": "q0",
+      "symbol": "",
+      "to": [
+        "q2"
+      ]
+    },
+    {
+      "from": "q6",
+      "symbol": "b",
+      "to": [
+        "q7"
+      ]
+    },
+    {
+      "from": "q3",
+      "symbol": "",
+      "to": [
+        "q6"
+      ]
+    },
+    {
+      "from": "q7",
+      "symbol": "",
+      "to": [
+        "q1"
+      ]
+    }
+  ]
+}
